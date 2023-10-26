@@ -1,0 +1,357 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/CircleArena.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.3562463951870417 -0.3076118468772477 -0.8823057619538743 4.4436817309715
+  position 0.9845663310664564 -2.20766924277227 2.1364721681765926
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+CircleArena {
+  radius 10
+  wallThickness 0.5
+  wallHeight 1
+  subdivision 32
+}
+Robot {
+  translation 0.79 0.18 0.236805
+  rotation -1.0687901634126792e-08 0.9998181528672031 0.019069902915692934 -5.307179586466759e-06
+  children [
+    Accelerometer {
+    }
+    Gyro {
+    }
+    Compass {
+    }
+    Solid {
+      rotation 0 0 1 1.01503e-06
+      name "imu_link"
+    }
+    GPS {
+    }
+    InertialUnit {
+      name "inertial_unit"
+    }
+    Lidar {
+      translation 0 0 0.37
+      rotation 0 0 -1 -1.5707953071795862
+      children [
+        Solid {
+          rotation 0 0 -1 1.5708
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.180392 0.203922 0.211765
+                metalness 0
+              }
+              geometry DEF Lidar Cylinder {
+                height 0.02
+                radius 0.03
+              }
+            }
+          ]
+          boundingObject USE Lidar
+        }
+      ]
+      name "LDS-01"
+      horizontalResolution 360
+      fieldOfView 6.28318
+      numberOfLayers 1
+      near 0.07
+      minRange 0.12
+      maxRange 3.5
+    }
+    DEF Right_Track Group {
+      children [
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            anchor 0.54 -0.6 0
+          }
+          device [
+            RotationalMotor {
+              name "rw4m"
+              multiplier -1
+            }
+          ]
+          endPoint Solid {
+            translation 0.5400013600385571 -0.6001151173795845 -0.00010792732304689403
+            rotation 0.7071084935752093 2.135504484968725e-06 0.7071050687905143 3.1415942777436445
+            children [
+              DEF WheeledRFirstLeftWheel Shape {
+                appearance PBRAppearance {
+                  baseColor 0.6 0.756863 0.945098
+                  roughness 1
+                  metalness 0.7
+                }
+                geometry Cylinder {
+                  height 0.08
+                  radius 0.2
+                }
+              }
+            ]
+            name "rw4"
+            boundingObject USE WheeledRFirstLeftWheel
+            physics Physics {
+            }
+          }
+        }
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            anchor 0.54 -0.2 0
+          }
+          device [
+            RotationalMotor {
+              name "rw3m"
+              multiplier -1
+            }
+          ]
+          endPoint Solid {
+            translation 0.5400014746058788 -0.2001141207926427 -0.00010881921613119366
+            rotation 0.7071084935752093 2.135504484968725e-06 0.7071050687905143 3.1415942777436445
+            children [
+              DEF WheeledRFirstLeftWheel Shape {
+                appearance PBRAppearance {
+                  baseColor 0.6 0.756863 0.945098
+                  roughness 1
+                  metalness 0.7
+                }
+                geometry Cylinder {
+                  height 0.08
+                  radius 0.2
+                }
+              }
+            ]
+            name "rw3"
+            boundingObject USE WheeledRFirstLeftWheel
+            physics Physics {
+            }
+          }
+        }
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            anchor 0.54 0.2 0
+          }
+          device [
+            RotationalMotor {
+              name "rw2m"
+              multiplier -1
+            }
+          ]
+          endPoint Solid {
+            translation 0.5400015891732006 0.19988687579450737 -0.00010971110943040822
+            rotation -3.024819598070387e-06 0.9999999999908504 -3.024833743188631e-06 4.712388736388545
+            children [
+              DEF WheeledRFirstLeftWheel Shape {
+                appearance PBRAppearance {
+                  baseColor 0.6 0.756863 0.945098
+                  roughness 1
+                  metalness 0.7
+                }
+                geometry Cylinder {
+                  height 0.08
+                  radius 0.2
+                }
+              }
+            ]
+            name "rw2"
+            boundingObject USE WheeledRFirstLeftWheel
+            physics Physics {
+            }
+          }
+        }
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            anchor 0.54 0.6 0
+          }
+          device [
+            RotationalMotor {
+              name "rw1m"
+              multiplier -1
+            }
+          ]
+          endPoint Solid {
+            translation 0.5400017037405229 0.5998878723812407 -0.000110603002300218
+            rotation 0.7071084935752093 2.135504484968725e-06 0.7071050687905143 3.1415942777436445
+            children [
+              DEF WheeledRFirstLeftWheel Shape {
+                appearance PBRAppearance {
+                  baseColor 0.6 0.756863 0.945098
+                  roughness 1
+                  metalness 0.7
+                }
+                geometry Cylinder {
+                  height 0.08
+                  radius 0.2
+                }
+              }
+            ]
+            name "rw1"
+            boundingObject USE WheeledRFirstLeftWheel
+            physics Physics {
+            }
+          }
+        }
+      ]
+    }
+    DEF Left_Track Group {
+      children [
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            anchor -0.54 -0.6 0
+          }
+          device [
+            RotationalMotor {
+              name "lw4m"
+              multiplier -1
+            }
+          ]
+          endPoint Solid {
+            translation -0.5399986709509977 -0.6001153088284572 -0.00010768153122407288
+            rotation 0.7071084935752093 2.135504484968725e-06 0.7071050687905143 3.1415942777436445
+            children [
+              DEF WheeledRFirstLeftWheel Shape {
+                appearance PBRAppearance {
+                  baseColor 0.6 0.756863 0.945098
+                  roughness 1
+                  metalness 0.7
+                }
+                geometry Cylinder {
+                  height 0.08
+                  radius 0.2
+                }
+              }
+            ]
+            name "lw4"
+            boundingObject USE WheeledRFirstLeftWheel
+            physics Physics {
+            }
+          }
+        }
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            anchor -0.54 -0.2 0
+          }
+          device [
+            RotationalMotor {
+              name "lw3m"
+              multiplier -1
+            }
+          ]
+          endPoint Solid {
+            translation -0.5399985563836759 -0.20011431224151538 -0.00010857342430857186
+            rotation 0.7071084935752093 2.135504484968725e-06 0.7071050687905143 3.1415942777436445
+            children [
+              DEF WheeledRFirstLeftWheel Shape {
+                appearance PBRAppearance {
+                  baseColor 0.6 0.756863 0.945098
+                  roughness 1
+                  metalness 0.7
+                }
+                geometry Cylinder {
+                  height 0.08
+                  radius 0.2
+                }
+              }
+            ]
+            name "lw3"
+            boundingObject USE WheeledRFirstLeftWheel
+            physics Physics {
+            }
+          }
+        }
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            anchor -0.54 0.2 0
+          }
+          device [
+            RotationalMotor {
+              name "lw2m"
+              multiplier -1
+            }
+          ]
+          endPoint Solid {
+            translation -0.539998441816354 0.19988668434542634 -0.00010946531739309722
+            rotation 0.7071084935752093 2.135504484968725e-06 0.7071050687905143 3.1415942777436445
+            children [
+              DEF WheeledRFirstLeftWheel Shape {
+                appearance PBRAppearance {
+                  baseColor 0.6 0.756863 0.945098
+                  roughness 1
+                  metalness 0.7
+                }
+                geometry Cylinder {
+                  height 0.08
+                  radius 0.2
+                }
+              }
+            ]
+            name "lw2"
+            boundingObject USE WheeledRFirstLeftWheel
+            physics Physics {
+            }
+          }
+        }
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            anchor -0.54 0.6 0
+          }
+          device [
+            RotationalMotor {
+              name "lw1m"
+              multiplier -1
+            }
+          ]
+          endPoint Solid {
+            translation -0.539998327249032 0.5998876809323682 -0.0001103572104774137
+            rotation 0.7071084935752093 2.135504484968725e-06 0.7071050687905143 3.1415942777436445
+            children [
+              DEF WheeledRFirstLeftWheel Shape {
+                appearance PBRAppearance {
+                  baseColor 0.6 0.756863 0.945098
+                  roughness 1
+                  metalness 0.7
+                }
+                geometry Cylinder {
+                  height 0.08
+                  radius 0.2
+                }
+              }
+            ]
+            name "lw1"
+            boundingObject USE WheeledRFirstLeftWheel
+            physics Physics {
+            }
+          }
+        }
+      ]
+    }
+    Solid {
+      children [
+        DEF BaseBody Shape {
+          appearance PBRAppearance {
+            baseColor 0.239216 0.219608 0.27451
+            metalness 0
+            IBLStrength 0.2
+          }
+          geometry Box {
+            size 1 1.4 0.05
+          }
+        }
+      ]
+    }
+  ]
+  name "tracked"
+  boundingObject USE BaseBody
+  physics Physics {
+    density -1
+    mass 50
+  }
+  controller "<extern>"
+}
