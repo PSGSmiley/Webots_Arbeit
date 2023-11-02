@@ -15,3 +15,14 @@ https://navigation.ros.org/getting_started/index.html#installation
 Robot State Publisher // Xarcro:
 sudo apt install ros-<ros2-distro>-joint-state-publisher-gui
 sudo apt install ros-<ros2-distro>-xacro
+
+To start:
+build one of the robot directories (mecanum for example)
+source the package
+launch the package
+
+build the rf20 package
+source the package
+launch the package
+
+Move the Robot a bit for slam toolbox to start generating a map (in webots or using the topic cmd_vel)
