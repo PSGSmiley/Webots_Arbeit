@@ -1,0 +1,19 @@
+Required:
+
+Ubuntu 22.04
+
+Ros2 Humble:
+https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html
+
+webots_ros2:
+https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.html
+
+Slam Toolbox:
+https://github.com/SteveMacenski/slam_toolbox
+
+Nav2:
+https://navigation.ros.org/getting_started/index.html#installation
+
+Robot State Publisher // Xarcro:
+sudo apt install ros-<ros2-distro>-joint-state-publisher-gui
+sudo apt install ros-<ros2-distro>-xacro
