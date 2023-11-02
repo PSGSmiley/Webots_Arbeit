@@ -17,12 +17,9 @@ sudo apt install ros-<ros2-distro>-joint-state-publisher-gui
 sudo apt install ros-<ros2-distro>-xacro
 
 To start:
-build one of the robot directories (mecanum for example)
-source the package
-launch the package
+build ws (colcon build)
+source the package (source install/ local_setup.bash)
+launch one of the robot packages | for example the mecanum robot (ros2 launch mecanum_robot robot_launch.py)
+launch the rf2o package (ros2 launch rf2o_laser_odometry rf2o_laser_odometry.launch.py)
 
-build the rf20 package
-source the package
-launch the package
-
-Move the Robot a bit for slam toolbox to start generating a map (in webots or using the topic cmd_vel)
+Move the robot a little so that the slam toolbox can start generating a map (in webots or using the cmd_vel topic).
