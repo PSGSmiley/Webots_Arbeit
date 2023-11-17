@@ -6,9 +6,6 @@ https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html
 webots_ros2:
 https://docs.ros.org/en/humble/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.html
 
-Slam Toolbox:
-https://github.com/SteveMacenski/slam_toolbox
-
 Nav2:
 https://navigation.ros.org/getting_started/index.html#installation
 
@@ -20,6 +17,3 @@ To start:
 build ws (colcon build)
 source the package (source install/ local_setup.bash)
 launch one of the robot packages | for example the mecanum robot (ros2 launch mecanum_robot robot_launch.py)
-launch the rf2o package (ros2 launch rf2o_laser_odometry rf2o_laser_odometry.launch.py)
-
-Move the robot a little so that the slam toolbox can start generating a map (in webots or using the cmd_vel topic).
