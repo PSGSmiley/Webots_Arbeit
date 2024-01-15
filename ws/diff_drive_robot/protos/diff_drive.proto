@@ -1,0 +1,415 @@
+#VRML_SIM R2023b utf8
+# Diff_drive Robot
+
+
+PROTO diff_drive [
+  field SFVec3f translation -0.0800311 4.77003 0.113416
+  field SFRotation rotation 7.912008040846748e-05 0.008580972844108182 0.9999631796446615 0.0004992696677112809
+  field SFString name "diff_drive"
+  field SFString controller "<extern>"
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    children [
+      BallJoint {
+        jointParameters BallJointParameters {
+          position -0.00019843771057228963
+          anchor 0 0 -0.04
+        }
+        jointParameters2 JointParameters {
+          position 0.03872038624962679
+        }
+        jointParameters3 JointParameters {
+          position 0.0034848398149443364
+          axis 0 1 0
+        }
+        endPoint Solid {
+          translation 3.0657400500455623e-06 -7.482904429423343e-08 -0.03982015523372495
+          rotation 0.0024548958887768368 0.9999848732326801 -0.004922071921042102 1.037968165660317
+          children [
+            DEF caster Shape {
+              appearance PBRAppearance {
+                baseColor 0.180392 0.203922 0.211765
+                metalness 0
+              }
+              geometry Sphere {
+                radius 0.11
+              }
+            }
+          ]
+          name "solid(2)"
+          boundingObject USE caster
+          physics Physics {
+          }
+          linearVelocity -7.3996283672910244e-09 -1.0232085108683503e-07 -1.140033348968646e-09
+          angularVelocity 9.30046292272882e-07 -6.726971881737262e-08 8.529095869453365e-13
+        }
+      }
+      Solid {
+        children [
+          Solid {
+            translation 0 0.1425 -0.0522
+            rotation -1 0 0 1.5707963000000003
+            children [
+              DEF WHEEL Pose {
+                children [
+                  Shape {
+                    appearance DEF blue PBRAppearance {
+                      baseColor 0.2 0.2 0.8
+                      roughness 0.2
+                      metalness 0.8
+                    }
+                    geometry Cylinder {
+                      height 0.04
+                      radius 0.1
+                    }
+                  }
+                ]
+              }
+            ]
+            name "left_wheel"
+            contactMaterial "wheel"
+          }
+          Solid {
+            translation 0 -0.1425 -0.0522
+            rotation -1 0 0 1.5707963000000003
+            children [
+              DEF WHEEL Pose {
+                children [
+                  Shape {
+                    appearance DEF blue PBRAppearance {
+                      baseColor 0.2 0.2 0.8
+                      roughness 0.2
+                      metalness 0.8
+                    }
+                    geometry Cylinder {
+                      height 0.04
+                      radius 0.1
+                    }
+                  }
+                ]
+              }
+            ]
+            name "right_wheel"
+            contactMaterial "wheel"
+          }
+          DEF DIFFDRIVE_BOUND Pose {
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  transparency 1
+                }
+                geometry Box {
+                  size 0.35 0.25 0.15
+                }
+              }
+            ]
+          }
+          DEF MESH_B Transform {
+            translation 0 0 0.04
+            rotation 0 0 1 -1.55
+            scale 0.025 0.025 0.025
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.2 0.2 0.2
+                  transparency 0.01
+                  roughness 0.5
+                  metalness 0.2
+                }
+                geometry Mesh {
+                  url [
+                    "meshes/NipperAGV/D00331747_Drehschemel_ohne_Antriebe.stl"
+                  ]
+                }
+                castShadows FALSE
+              }
+            ]
+          }
+        ]
+        name "drehschemel"
+        contactMaterial "frictionless"
+      }
+      Solid {
+        translation -1.03 -0.2056 -0.065
+        rotation 0 0 1 0.02
+        name "left_fork"
+        boundingObject Box {
+          size 1.3 0.15 0.069
+        }
+        physics Physics {
+          density -1
+          mass 1
+        }
+      }
+      Solid {
+        translation -1.03 0.16 -0.065
+        rotation 0 0 1 0.02
+        name "right_fork"
+        boundingObject Box {
+          size 1.3 0.15 0.069
+        }
+        physics Physics {
+          density -1
+          mass 1
+        }
+      }
+      Accelerometer {
+      }
+      Gyro {
+      }
+      Compass {
+      }
+      Solid {
+        rotation 0 0 1 1.01503e-06
+        name "imu_link"
+      }
+      GPS {
+      }
+      InertialUnit {
+        name "inertial_unit"
+      }
+      Lidar {
+        translation 0.32 -2.06647e-15 0.02
+        rotation 0 0 1 -5.307179586466759e-06
+        children [
+          Pose {
+            translation 4.15082e-07 -2.12288e-07 -3.34746e-13
+            rotation -3.41778894233516e-06 0.7071087811789702 -0.707104781180208 3.14159
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.969 0.8 0.016
+                  roughness 0.5
+                  metalness 0.2
+                }
+                geometry Mesh {
+                  url [
+                    "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/devices/sick/protos/meshes/sick_s300_yellow.dae"
+                  ]
+                }
+              }
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0 0 0
+                }
+                geometry Mesh {
+                  url [
+                    "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/devices/sick/protos/meshes/sick_s300_glass.dae"
+                  ]
+                }
+              }
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0 0 0
+                  roughness 0.5
+                  metalness 0.2
+                }
+                geometry Mesh {
+                  url [
+                    "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/devices/sick/protos/meshes/sick_s300_black.dae"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+        name "SICKS300"
+        boundingObject Group {
+          children [
+            Pose {
+              translation 4.15082e-07 -2.12288e-07 -3.34746e-13
+              rotation -3.41778894233516e-06 0.7071087811789702 -0.707104781180208 3.14159
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.969 0.8 0.016
+                    roughness 0.5
+                    metalness 0.2
+                  }
+                  geometry Mesh {
+                    url [
+                      "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/devices/sick/protos/meshes/sick_s300_yellow.dae"
+                    ]
+                  }
+                }
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0 0 0
+                  }
+                  geometry Mesh {
+                    url [
+                      "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/devices/sick/protos/meshes/sick_s300_glass.dae"
+                    ]
+                  }
+                }
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0 0 0
+                    roughness 0.5
+                    metalness 0.2
+                  }
+                  geometry Mesh {
+                    url [
+                      "https://raw.githubusercontent.com/cyberbotics/webots/R2022a/projects/devices/sick/protos/meshes/sick_s300_black.dae"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 1.2
+        }
+        horizontalResolution 400
+        fieldOfView 3.6
+        verticalFieldOfView 0.008726646259962964
+        numberOfLayers 1
+        near 0.07
+        minRange 0.6
+        maxRange 30
+        minFrequency 5
+        maxFrequency 10
+      }
+      DEF GABEL_BOUND Pose {
+        translation 0 0 0.13
+        children [
+          Shape {
+            appearance PBRAppearance {
+              transparency 1
+            }
+            geometry Box {
+              size 0.9 0.65 0.45
+            }
+          }
+        ]
+      }
+      DEF REARWHEEL_L HingeJoint {
+        jointParameters HingeJointParameters {
+          position 7.51335076948385e-07
+          axis 0 1 0
+          anchor -1.44 0.15 -0.1
+        }
+        device [
+          RotationalMotor {
+            name "leftmotor"
+          }
+          PositionSensor {
+            name "rear_wheel_left_joint"
+          }
+        ]
+        endPoint Solid {
+          translation -1.44 0.15 -0.1
+          rotation 0 1 0 7.515859730791191e-07
+          children [
+            DEF REARWHEEL_TF Pose {
+              rotation -1 0 0 1.5707963
+              children [
+                DEF REAR_WHEEL Shape {
+                  appearance PBRAppearance {
+                  }
+                  geometry Cylinder {
+                    height 0.1
+                    radius 0.025
+                  }
+                }
+              ]
+            }
+          ]
+          name "rear_wheel_left"
+          contactMaterial "frictionless"
+          boundingObject USE REARWHEEL_TF
+          physics Physics {
+            density -1
+            mass 1
+            centerOfMass [
+              0 0 0
+            ]
+          }
+          linearVelocity 6.887396898535097e-11 -1.0381339063199507e-07 -4.830326645585322e-10
+          angularVelocity 4.156418882417004e-06 1.0732490960262764e-09 -7.106443495186413e-09
+        }
+      }
+      DEF REARWHEEL_R HingeJoint {
+        jointParameters HingeJointParameters {
+          position -8.316842575108076e-08
+          axis 0 1 0
+          anchor -1.45 -0.22 -0.1
+        }
+        device [
+          RotationalMotor {
+            name "rightmotor"
+          }
+          PositionSensor {
+            name "rear_wheel_right_joint"
+          }
+        ]
+        endPoint Solid {
+          translation -1.45 -0.22 -0.1
+          rotation 0 -1 0 8.429369702178807e-08
+          children [
+            DEF REARWHEEL_TF Pose {
+              rotation -1 0 0 1.5707963
+              children [
+                DEF REAR_WHEEL Shape {
+                  appearance PBRAppearance {
+                  }
+                  geometry Cylinder {
+                    height 0.1
+                    radius 0.025
+                  }
+                }
+              ]
+            }
+          ]
+          name "rear_wheel_right"
+          contactMaterial "frictionless"
+          boundingObject USE REARWHEEL_TF
+          physics Physics {
+            density -1
+            mass 1
+            centerOfMass [
+              0 0 0
+            ]
+          }
+          linearVelocity -1.5175759851624337e-11 -1.0404641110504046e-07 -3.601019215833758e-10
+          angularVelocity 4.1597931045740655e-06 1.081145492646793e-09 -7.107950006681623e-09
+        }
+      }
+      DEF MESH Transform {
+        translation -0.724847 0.225179 -0.07
+        rotation 0 0 1 -1.55
+        scale 0.025 0.025 0.025
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.8 0.8 0.8
+              transparency 0.1
+              roughness 0.5
+              metalness 0.2
+            }
+            geometry Mesh {
+              url [
+                "meshes/NipperAGV/D00347465_Hubgabel-FTF_ohne_Drehschemel.stl"
+              ]
+            }
+            castShadows FALSE
+          }
+        ]
+      }
+    ]
+    name IS name
+    description "this is the hew nipper agv"
+    boundingObject USE GABEL_BOUND
+    physics Physics {
+      density -1
+      mass 1
+    }
+    controller IS controller
+  }
+}
+
